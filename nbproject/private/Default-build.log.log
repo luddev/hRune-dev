@@ -1,0 +1,9 @@
+/usr/bin/make -f linux.mk
+make[1]: Entering directory `/home/ludkiller/Desktop/projects/hRune'
+g++ `sdl-config --libs` -lm -lSDL_image  -o bin/linux/SuperGuy
+/usr/lib/gcc/i686-linux-gnu/4.7/../../../i386-linux-gnu/crt1.o: In function `_start':
+(.text+0x18): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+make[1]: *** [bin/linux/SuperGuy] Error 1
+make[1]: Leaving directory `/home/ludkiller/Desktop/projects/hRune'
+make: *** [linux] Error 2
