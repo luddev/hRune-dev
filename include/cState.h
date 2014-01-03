@@ -26,6 +26,7 @@ enum GameState	{
 class cState {
 public:
 	GameState m_gState;
+	cEngine m_engineInstance;
 
 	cState()	{
 		m_gState = GSTATE_SPLASH_SCREEN;

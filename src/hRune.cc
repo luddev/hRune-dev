@@ -23,6 +23,8 @@ int main(int argc, char **argv) {
 
 		if (SDL_PollEvent(&event)) {
 			//Think and Draw baby, Think and Draw;
+			
+			
 			stateManager.think();
 			stateManager.draw();
 

@@ -18,6 +18,7 @@ public:
 	ObjectState think();
 	void draw();
 	void destroy();
+	
 };
 
 #endif /* CPLAYER_H_ */
