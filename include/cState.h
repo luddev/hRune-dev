@@ -9,17 +9,38 @@
 #define CSTATE_H_
 
 enum ObjectState {
-	REMOVED = 0, ACTIVE = 1
+	OSTATE_REMOVED = 0, OSTATE_ACTIVE = 1
 };
 
 enum ObjectType {
-	PLAYER = 0, COIN = 1, TILE_PASSIVE = 2, TILE_SOLID = 3, ENEMY = 4
+	OTYPE_PLAYER = 0, OTYPE_COIN = 1, OTYPE_TILE_PASSIVE = 2, OTYPE_TILE_SOLID = 3, OTYPE_ENEMY = 4
+};
+
+enum GameState	{
+	GSTATE_EXIT = 0,
+	GSTATE_MAIN_MENU = 1,
+	GSTATE_LOAD_LEVEL = 2,
+	GSTATE_SPLASH_SCREEN = 3
 };
 
 class cState {
-private:
-
 public:
+	GameState m_gState;
+
+	cState()	{
+		m_gState = GSTATE_SPLASH_SCREEN;
+	}
+
+	cState(GameState _gState)	{
+		m_gState = _gState;
+	}
+
+	GameState getState();
+	void setState(GameState _gState);
+
+	void think();
+	void draw();
+
 
 };
 
