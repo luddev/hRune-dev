@@ -8,6 +8,8 @@
 #ifndef CSTATE_H_
 #define CSTATE_H_
 
+
+
 enum ObjectState {
 	OSTATE_REMOVED = 0, OSTATE_ACTIVE = 1
 };

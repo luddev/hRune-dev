@@ -1,7 +1,9 @@
-hRune-dev
-=== Documentation ===
+hRune-dev  
 
-base Class cGameObject derives Coordinates, some Initialization,
+=== Documentation ===  
+
+
+base Class cGameObject derives Coordinates, some Initialization,  
 cGameObject 
 	-> think()
 	-> draw()

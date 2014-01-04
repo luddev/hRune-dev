@@ -8,8 +8,10 @@
 #ifndef CGAMEOBJECT_H_
 #define CGAMEOBJECT_H_
 
+#include <SDL2/SDL.h>
 #include "cCommon.h"
 #include "cState.h"
+
 
 struct position {
 	float x;
@@ -22,6 +24,10 @@ class cGameObject {
 private:
 
 public:
+    cGameObject()   {
+        ;
+    }
+
 	cGameObject(float x, float y, float w, float h, ObjectType objType) {
 		m_position.x = x;
 		m_position.y = y;
@@ -43,7 +49,7 @@ public:
 		m_yvel = _yvel;
 
 	}
-	virtual ObjectState think() { return REMOVED; }	//Object Logic Goes in here override for object logic.
+	virtual ObjectState think(SDL_Event &event) { return OSTATE_REMOVED; }	//Object Logic Goes in here override for object logic.
 	virtual void draw() { ; }	//Draw call goes in here.
 	virtual void destroy() { ; }	//
 

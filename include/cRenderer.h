@@ -1,6 +1,8 @@
 #ifndef _CRENDERER_H
 #define _CRENDERER_H
 
+#include<SDL2/SDL.h>
+
 class cRenderer {
 public:
 	static void renderAt();

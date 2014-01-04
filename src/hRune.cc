@@ -23,12 +23,12 @@ int main(int argc, char **argv) {
 	cState stateManager;
 	while (1) {
 
+        //Add some kind of CAP.
+        stateManager.think();
+		stateManager.draw();
+
 		if (SDL_PollEvent(&event)) {
 			//Think and Draw baby, Think and Draw;
-			
-			
-			stateManager.think();
-			stateManager.draw();
 
 			if (event.type == SDL_KEYDOWN) {
 				switch (event.key.keysym.sym) {

@@ -13,9 +13,12 @@
 
 class cPlayer : cGameObject {
 private:
-
+    bool m_isSpawned;
+    bool m_isDead;
+    bool m_bFlip;
 public:
-	ObjectState think();
+    cPlayer();
+	ObjectState think(SDL_Event &event);
 	void draw();
 	void destroy();
 	
