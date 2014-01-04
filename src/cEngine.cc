@@ -8,8 +8,8 @@
 #include "../include/cEngine.h"
 
 
-void cEngine::add(cGameObject *_object, long int _objID)	{
-	
+bool cEngine::add(cGameObject *_object, long int _objID)	{
+	return true;
 }
 
 void cEngine::draw() {

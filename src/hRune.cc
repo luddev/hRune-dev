@@ -10,6 +10,8 @@
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_main.h>
 
+#include "../include/cState.h"
+
 int main(int argc, char **argv) {
 	SDL_Init(SDL_INIT_EVERYTHING);
 	SDL_Event event;
