@@ -31,14 +31,20 @@
 
 class cRenderer {
 public:
+
+    static SDL_Window *gameWindow;
+    static SDL_Renderer *globalRenderer; 
+
 	static void renderAt();
 	static void renderRotatedAt();
 	static void renderFlippedAt();
 
-	static SDL_Texture* createTexture(SDL_Surface *_sTex);
-    static void placeObject(SDL_Surface *source, SDL_Surface *dest,SDL_Rect _src, SDL_Rect _dest); 
+	static SDL_Texture* createTexture(const char *fileName);
+    static void placeObject(SDL_Surface *source, SDL_Surface *dest,SDL_Rect _src, SDL_Rect _dest);
     static void placeTile(SDL_Surface *source, SDL_Surface *dest,SDL_Rect _src, int index);
 
+    static void drawExitScreen();
+    static void drawSplashScreen();
 };
 
 #endif //_CRENDERER_H

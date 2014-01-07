@@ -6,7 +6,7 @@
  */
 
 #include "../include/cEngine.h"
-
+#include "../include/cRenderer.h"
 
 bool cEngine::add(cGameObject *_object, long int _objID)	{
     objID++;
@@ -20,10 +20,12 @@ void cEngine::init(GameState _gState)    {
     m_gState = _gState;
     if(_gState == GSTATE_SPLASH_SCREEN)	{
 		//Splash Loading Code.
+        cRenderer::drawSplashScreen();
 		return;
 	}
 	if(_gState == GSTATE_MAIN_MENU)	{
 		//Main Menu Loading Code.
+
 		return;
 	}
 	if(_gState == GSTATE_LOAD_LEVEL)	{
@@ -32,6 +34,7 @@ void cEngine::init(GameState _gState)    {
 	}
 	if(_gState == GSTATE_EXIT)	{
 		//Exit Loading Code.
+        cRenderer::drawExitScreen();
 		return;
 	}
 

@@ -11,6 +11,7 @@
 #include<SDL2/SDL_main.h>
 
 #include "../include/cState.h"
+#include "../include/cRenderer.h"
 
 int main(int argc, char **argv) {
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -18,8 +19,8 @@ int main(int argc, char **argv) {
 
 	SDL_Window *window;
 	SDL_Renderer *renderer;
-	window = SDL_CreateWindow("hRune-dev", 50, 50, 640, 480, SDL_WINDOW_SHOWN);
-	renderer = SDL_CreateRenderer(window,0,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	cRenderer::gameWindow = SDL_CreateWindow("hRune-dev", 50, 50, 640, 480, SDL_WINDOW_SHOWN);
+	cRenderer::globalRenderer = SDL_CreateRenderer(window,0,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	cState stateManager;
 	while (1) {
 
