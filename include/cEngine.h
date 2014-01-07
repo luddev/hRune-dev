@@ -14,6 +14,12 @@
 
 class cEngine {
 public:
+    GameState m_gState;
+
+    cEngine()   {;};
+    cEngine(GameState _gState)  { m_gState = _gState; }
+
+    void init(GameState _gState);
 	void update();
 	void draw();
 
@@ -21,6 +27,7 @@ public:
 
 private:
 	std::map<long int , cGameObject *> m_gameObjectList;
+    static int objID;
 
 	void registerCollisionHandler(ObjectType handles, ObjectType testObj);
 	void remove(long int _objID);

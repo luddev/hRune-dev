@@ -25,10 +25,21 @@ private:
 
 public:
     cGameObject()   {
-        ;
+        objID = 0;
     }
 
-	cGameObject(float x, float y, float w, float h, ObjectType objType) {
+    cGameObject(long int _objID) {
+        m_position.x = 0;
+		m_position.y = 0;
+		m_position.w = 0;
+		m_position.h = 0;
+		m_objType = OTYPE_NULL;
+		m_xvel = 0;
+		m_yvel = 0;
+        objID = _objID;
+    }
+
+	cGameObject(float x, float y, float w, float h, ObjectType objType, long int _objID) {
 		m_position.x = x;
 		m_position.y = y;
 		m_position.w = w;
@@ -36,6 +47,7 @@ public:
 		m_objType = objType;
 		m_xvel = 0;
 		m_yvel = 0;
+        objID = _objID;
 	}
 
 	cGameObject(float x, float y, float w, float h, float _xvel, float _yvel,
@@ -68,11 +80,16 @@ public:
 		return m_position.w;
 	}
 
+    long int getObjID() {
+        return objID;
+    }
+
 	bool checkCollision(ObjectType src, ObjectType dest);
 
 	position m_position;
 	float m_xvel, m_yvel;
 	ObjectType m_objType;
+    long int objID;
 
 };
 

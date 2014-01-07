@@ -8,14 +8,14 @@
 #ifndef CSTATE_H_
 #define CSTATE_H_
 
-
+#include "../include/cEngine.h"
 
 enum ObjectState {
-	OSTATE_REMOVED = 0, OSTATE_ACTIVE = 1
+	OSTATE_REMOVED = 0, OSTATE_ACTIVE = 1, OSTATE_ALIVE = 2
 };
 
 enum ObjectType {
-	OTYPE_PLAYER = 0, OTYPE_COIN = 1, OTYPE_TILE_PASSIVE = 2, OTYPE_TILE_SOLID = 3, OTYPE_ENEMY = 4
+	OTYPE_PLAYER = 0, OTYPE_COIN = 1, OTYPE_TILE_PASSIVE = 2, OTYPE_TILE_SOLID = 3, OTYPE_ENEMY = 4, OTYPE_NULL = 5
 };
 
 enum GameState	{
@@ -28,14 +28,16 @@ enum GameState	{
 class cState {
 public:
 	GameState m_gState;
-	cEngine m_engineInstance;
+	cEngine *m_engineInstance;
 
 	cState()	{
 		m_gState = GSTATE_SPLASH_SCREEN;
+        m_engineInstance = new cEngine(m_gState);
 	}
 
 	cState(GameState _gState)	{
 		m_gState = _gState;
+        m_engineInstance = new cEngine();
 	}
 
 	GameState getState();

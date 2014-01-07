@@ -9,7 +9,32 @@
 
 
 bool cEngine::add(cGameObject *_object, long int _objID)	{
+    objID++;
+    m_gameObjectList[objID] = _object;
 	return true;
+}
+
+void cEngine::init(GameState _gState)    {
+    //init Objects According to game State
+    //Reinit on Change of State.
+    m_gState = _gState;
+    if(_gState == GSTATE_SPLASH_SCREEN)	{
+		//Splash Loading Code.
+		return;
+	}
+	if(_gState == GSTATE_MAIN_MENU)	{
+		//Main Menu Loading Code.
+		return;
+	}
+	if(_gState == GSTATE_LOAD_LEVEL)	{
+		//Load Level Loading Code.
+		return;
+	}
+	if(_gState == GSTATE_EXIT)	{
+		//Exit Loading Code.
+		return;
+	}
+
 }
 
 void cEngine::draw() {

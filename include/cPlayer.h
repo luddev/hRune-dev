@@ -17,7 +17,9 @@ private:
     bool m_isDead;
     bool m_bFlip;
 public:
+
     cPlayer();
+    cPlayer(long int objID);
 	ObjectState think(SDL_Event &event);
 	void draw();
 	void destroy();
