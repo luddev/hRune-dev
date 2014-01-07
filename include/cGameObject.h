@@ -5,8 +5,8 @@
  *      Author: ludkiller
  */
 
-#ifndef CGAMEOBJECT_H_
-#define CGAMEOBJECT_H_
+#ifndef _C_GAMEOBJECT_H_
+#define _C_GAMEOBJECT_H_
 
 #include <SDL2/SDL.h>
 #include "cCommon.h"
@@ -24,6 +24,12 @@ class cGameObject {
 private:
 
 public:
+
+    position m_position;
+	float m_xvel, m_yvel;
+	ObjectType m_objType;
+    long int objID;
+
     cGameObject()   {
         objID = 0;
     }
@@ -33,7 +39,7 @@ public:
 		m_position.y = 0;
 		m_position.w = 0;
 		m_position.h = 0;
-		m_objType = OTYPE_NULL;
+		m_objType = ObjectType::OTYPE_NULL;
 		m_xvel = 0;
 		m_yvel = 0;
         objID = _objID;
@@ -59,9 +65,9 @@ public:
 		m_objType = objType;
 		m_xvel = _xvel;
 		m_yvel = _yvel;
+    }
 
-	}
-	virtual ObjectState think(SDL_Event &event) { return OSTATE_REMOVED; }	//Object Logic Goes in here override for object logic.
+	virtual ObjectState think(SDL_Event &event) { return ObjectState::OSTATE_REMOVED; }	//Object Logic Goes in here override for object logic.
 	virtual void draw() { ; }	//Draw call goes in here.
 	virtual void destroy() { ; }	//
 
@@ -86,11 +92,6 @@ public:
 
 	bool checkCollision(ObjectType src, ObjectType dest);
 
-	position m_position;
-	float m_xvel, m_yvel;
-	ObjectType m_objType;
-    long int objID;
-
 };
 
-#endif /* CGAMEOBJECT_H_ */
+#endif /* _C_GAMEOBJECT_H_ */

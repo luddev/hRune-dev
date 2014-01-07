@@ -20,7 +20,7 @@ void cEngine::init(GameState _gState)    {
     m_gState = _gState;
     if(_gState == GSTATE_SPLASH_SCREEN)	{
 		//Splash Loading Code.
-        cRenderer::drawSplashScreen();
+        //cRenderer::drawSplashScreen();
 		return;
 	}
 	if(_gState == GSTATE_MAIN_MENU)	{
@@ -34,7 +34,7 @@ void cEngine::init(GameState _gState)    {
 	}
 	if(_gState == GSTATE_EXIT)	{
 		//Exit Loading Code.
-        cRenderer::drawExitScreen();
+        //cRenderer::drawExitScreen();
 		return;
 	}
 

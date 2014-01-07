@@ -5,8 +5,8 @@
  *      Author: ludkiller
  */
 
-#ifndef CCOMMON_H_
-#define CCOMMON_H_
+#ifndef _C_COMMON_H_
+#define _C_COMMON_H_
 
 
-#endif /* CCOMMON_H_ */
+#endif /* _C_COMMON_H_ */

@@ -5,8 +5,8 @@
  *      Author: ludkiller
  */
 
-#ifndef CENGINE_H_
-#define CENGINE_H_
+#ifndef _C_ENGINE_H_
+#define _C_ENGINE_H_
 
 #include <vector>
 #include <map>
@@ -16,7 +16,7 @@ class cEngine {
 public:
     GameState m_gState;
 
-    cEngine()   {;};
+    cEngine()   {;}
     cEngine(GameState _gState)  { m_gState = _gState; }
 
     void init(GameState _gState);
@@ -27,10 +27,10 @@ public:
 
 private:
 	std::map<long int , cGameObject *> m_gameObjectList;
-    static int objID;
+    int objID;
 
 	void registerCollisionHandler(ObjectType handles, ObjectType testObj);
 	void remove(long int _objID);
 };
 
-#endif /* CENGINE_H_ */
+#endif /* _C_ENGINE_H_ */
