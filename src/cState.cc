@@ -14,7 +14,7 @@ GameState cState::getState()	{
 
 void cState::setState(GameState _gState)	{
 	m_gState = _gState;
-    //m_engineInstance->init(m_gState);
+    m_engineInstance->init(m_gState);
 }
 
 void cState::think()	{
@@ -38,7 +38,7 @@ void cState::think()	{
 	}
     ***/
     //Do I even need above code ?
-    //m_engineInstance->update();
+    m_engineInstance->update();
 
 	
 	return;
@@ -66,7 +66,7 @@ void cState::draw()	{
     **/
     //Do I even need above code?
 
-    //m_engineInstance->draw();
+    m_engineInstance->draw();
 
 	return;
 }

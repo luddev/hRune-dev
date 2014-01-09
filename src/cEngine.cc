@@ -9,18 +9,18 @@
 #include "../include/cRenderer.h"
 
 bool cEngine::add(cGameObject *_object, long int _objID)	{
-    objID++;
-    m_gameObjectList[objID] = _object;
+    m_gameObjectList.push_back(_object);
 	return true;
 }
 
 void cEngine::init(GameState _gState)    {
     //init Objects According to game State
     //Reinit on Change of State.
+    gameRenderer.clearScreen();
     m_gState = _gState;
     if(_gState == GSTATE_SPLASH_SCREEN)	{
 		//Splash Loading Code.
-        //cRenderer::drawSplashScreen();
+        gameRenderer.drawSplashScreen();
 		return;
 	}
 	if(_gState == GSTATE_MAIN_MENU)	{
@@ -41,11 +41,11 @@ void cEngine::init(GameState _gState)    {
 }
 
 void cEngine::draw() {
-
+    SDL_RenderPresent(gameRenderer.gameRenderer);
 }
 
 void cEngine::update() {
-
+   
 }
 
 void cEngine::registerCollisionHandler(ObjectType handles, ObjectType testObj)	{

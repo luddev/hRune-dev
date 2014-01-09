@@ -10,13 +10,17 @@
 
 #include <vector>
 #include <map>
+#include "cCommon.h"
 #include "cGameObject.h"
+#include "cRenderer.h"
 
 class cEngine {
 public:
     GameState m_gState;
+    cRenderer gameRenderer;
 
     cEngine()   {;}
+
     cEngine(GameState _gState)  { m_gState = _gState; }
 
     void init(GameState _gState);
@@ -26,8 +30,8 @@ public:
 	bool add(cGameObject *_object, long int _objID);
 
 private:
-	std::map<long int , cGameObject *> m_gameObjectList;
-    int objID;
+	std::vector<cGameObject *> m_gameObjectList;
+
 
 	void registerCollisionHandler(ObjectType handles, ObjectType testObj);
 	void remove(long int _objID);

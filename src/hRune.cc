@@ -5,6 +5,9 @@
  *      Author: ludkiller
  */
 
+//Note To Self : Fix Renderer.
+//Only Rendering needs to be fixed for first satge of the game :/
+
 #include<iostream>
 
 #include<SDL2/SDL.h>
@@ -20,10 +23,10 @@ int main(int argc, char **argv) {
 
 	SDL_Init(SDL_INIT_EVERYTHING);
 	SDL_Event event;
-
 	//cRenderer::gameWindow = SDL_CreateWindow("hRune-dev", 50, 50, 640, 480, SDL_WINDOW_SHOWN);
     //cRenderer::globalRenderer = SDL_CreateRenderer(cRenderer::gameWindow,0,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	cState stateManager;
+    stateManager.setState(GameState::GSTATE_SPLASH_SCREEN);
 	while (1) {
 
         //Add some kind of CAP.

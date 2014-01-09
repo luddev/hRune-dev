@@ -8,6 +8,7 @@
 #ifndef CPLAYER_H_
 #define CPLAYER_H_
 
+#include "cCommon.h"
 #include "cGameObject.h"
 
 

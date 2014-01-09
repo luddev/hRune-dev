@@ -1,8 +1,6 @@
 #ifndef _CRENDERER_H
 #define _CRENDERER_H
 
-#include<SDL2/SDL.h>
-
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 600
 //Player Stand Animation.
@@ -29,47 +27,34 @@
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_image.h>
 
+#include "cCommon.h"
+
+//Rewrite cRenderer :: Done
 class cRenderer {
 public:
-
-    static SDL_Window *gameWindow;
-    static SDL_Renderer *globalRenderer;
-
+    SDL_Window *gameWindow;
+    SDL_Renderer *gameRenderer;
+    
     cRenderer() {
-        cRenderer::gameWindow = SDL_CreateWindow("hRune-dev", 50, 50, 640, 480, SDL_WINDOW_SHOWN);
-        cRenderer::globalRenderer = SDL_CreateRenderer(cRenderer::gameWindow,0,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+        gameWindow = SDL_CreateWindow("hRune-dev",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED, 800,600,SDL_WINDOW_SHOWN);
+        gameRenderer = SDL_CreateRenderer(gameWindow,0,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     }
+    
+    void init();
+    void shutDown();
+    void render(SDL_Surface *gameSurface);
+    void render(SDL_Texture *gameTexture);
+    void clearScreen();
 
-	static void renderAt();
-	static void renderRotatedAt();
-	static void renderFlippedAt();
+    SDL_Texture* createTexture(const char *fileName);
+    SDL_Texture* createTexture(SDL_Surface *surface);
+    void drawSplashScreen();
+    void drawExitScreen();
 
-	//static SDL_Texture* createTexture(const char *fileName);
-    static void placeObject(SDL_Surface *source, SDL_Surface *dest,SDL_Rect _src, SDL_Rect _dest);
-    static void placeTile(SDL_Surface *source, SDL_Surface *dest,SDL_Rect _src, int index);
 
-    static SDL_Texture* cRenderer::createTexture(const char *fileName)   {
-         SDL_Texture *tempTexture;
-         SDL_Surface *tempSurface;
-         tempSurface = IMG_Load(fileName);
-         tempTexture = SDL_CreateTextureFromSurface(cRenderer::globalRenderer, tempSurface);
-         SDL_FreeSurface(tempSurface);
-         return tempTexture;
-    }
 
-    static void cRenderer::drawSplashScreen()  {
-         SDL_Texture *splashScreen = createTexture("../res/splash.png");
-          SDL_RenderCopy(cRenderer::globalRenderer,splashScreen,NULL,NULL);
-         return;
-
-    }
-
-    static void cRenderer::drawExitScreen()    {
-        SDL_Texture *exitSplashScreen = createTexture("../res/exitSplash.png");
-        SDL_RenderCopy(cRenderer::globalRenderer,exitSplashScreen,NULL,NULL);
-        return;
-    }
 };
+
 
 #endif //_CRENDERER_H
 

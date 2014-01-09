@@ -10,7 +10,7 @@
 
 #include <SDL2/SDL.h>
 #include "cCommon.h"
-#include "cState.h"
+
 
 
 struct position {
