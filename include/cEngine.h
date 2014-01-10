@@ -13,11 +13,14 @@
 #include "cCommon.h"
 #include "cGameObject.h"
 #include "cRenderer.h"
+#include "cPlayer.h"
 
 class cEngine {
 public:
     GameState m_gState;
     cRenderer gameRenderer;
+    SDL_Texture *gameTexture;
+    SDL_Surface *gameSurface;
 
     cEngine()   {;}
 
@@ -27,10 +30,13 @@ public:
 	void update();
 	void draw();
 
-	bool add(cGameObject *_object, long int _objID);
+	bool addTile(cGameObject *_object);
+    bool addEnemy(cGameObject *_object);
 
 private:
-	std::vector<cGameObject *> m_gameObjectList;
+	std::vector<cGameObject *> m_gameObjectTile;
+    //std::vector<cGameObject *> m_gameObjectBlocks;
+    std::vector<cGameObject *> m_gameObjectEnemy;
 
 
 	void registerCollisionHandler(ObjectType handles, ObjectType testObj);

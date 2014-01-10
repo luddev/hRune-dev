@@ -9,9 +9,12 @@
 //Only Rendering needs to be fixed for first satge of the game :/
 
 #include<iostream>
+#include<cstdlib>
 
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_main.h>
+#include<SDL2/SDL_image.h>
+#include<SDL2/SDL_ttf.h>
 
 #include "../include/cEngine.h"
 #include "../include/cState.h"
@@ -20,8 +23,13 @@
 
 
 int main(int argc, char **argv) {
-
+    //Add Value Checks :3
+    if (TTF_Init() != 0){
+	    cLog::Error("TTF_Init");
+	    return 1;
+    }
 	SDL_Init(SDL_INIT_EVERYTHING);
+
 	SDL_Event event;
 	//cRenderer::gameWindow = SDL_CreateWindow("hRune-dev", 50, 50, 640, 480, SDL_WINDOW_SHOWN);
     //cRenderer::globalRenderer = SDL_CreateRenderer(cRenderer::gameWindow,0,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
@@ -32,7 +40,9 @@ int main(int argc, char **argv) {
         //Add some kind of CAP.
         stateManager.think();
 		stateManager.draw();
-
+        if(stateManager.getState() == GameState::GSTATE_SPLASH_SCREEN)  {
+            SDL_Delay(1000);
+        }
 		if (SDL_PollEvent(&event)) {
 			//Think and Draw baby, Think and Draw;
 
@@ -49,6 +59,7 @@ int main(int argc, char **argv) {
 			if (event.type == SDL_QUIT) {
 				stateManager.setState(GSTATE_EXIT);
 				SDL_Quit();
+                exit(0);
 			}
 		}
 	}

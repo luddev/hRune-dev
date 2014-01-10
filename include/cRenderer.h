@@ -1,39 +1,20 @@
 #ifndef _CRENDERER_H
 #define _CRENDERER_H
 
-#define SCREEN_WIDTH 800
-#define SCREEN_HEIGHT 600
-//Player Stand Animation.
-#define PLAYER_ANIMATE_STAND_X 0
-#define PLAYER_ANIMATE_STAND_Y 0
-#define PLAYER_ANIMATE_STAND_W 80
-#define PLAYER_ANIMATE_STAND_H 80
-//Player Run Animation.
-#define PLAYER_ANIMATE_RUN_X 0
-#define PLAYER_ANIMATE_RUN_Y 0
-#define PLAYER_ANIMATE_RUN_W 80
-#define PLAYER_ANIMATE_RUN_H 80
-//Player Jump Animation
-#define PLAYER_ANIMATE_JUMP_X 0
-#define PLAYER_ANIMATE_JUMP_Y 0
-#define PLAYER_ANIMATE_JUMP_W 80
-#define PLAYER_ANIMATE_JUMP_H 80
-//Player Climb Animation
-#define PLAYER_ANIMATE_CLIMB_X 0
-#define PLAYER_ANIMATE_CLIMB_Y 0
-#define PLAYER_ANIMATE_CLIMB_W 80
-#define PLAYER_ANIMATE_CLIMB_H 80
+
 
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_image.h>
 
 #include "cCommon.h"
+#include "cFontRenderer.h"
 
 //Rewrite cRenderer :: Done
 class cRenderer {
 public:
     SDL_Window *gameWindow;
     SDL_Renderer *gameRenderer;
+    cFontRenderer fontRenderer;
     
     cRenderer() {
         gameWindow = SDL_CreateWindow("hRune-dev",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED, 800,600,SDL_WINDOW_SHOWN);
@@ -50,6 +31,7 @@ public:
     SDL_Texture* createTexture(SDL_Surface *surface);
     void drawSplashScreen();
     void drawExitScreen();
+    void drawMenuScreen();
 
 
 

@@ -47,6 +47,13 @@ void cRenderer::drawExitScreen()    {
 void cRenderer::drawSplashScreen()  {
     //Draw Splash Screen.
     SDL_Texture *splashScreen = createTexture("../res/splash.png");
+    SDL_Color color = { 255,255,255};
+    SDL_Texture *splashText = fontRenderer.createQuote("We Do What We Must ! \n \t \t Because We Can !",color,gameRenderer);
     render(splashScreen);
     
+}
+
+void cRenderer::drawMenuScreen()    {
+
+
 }

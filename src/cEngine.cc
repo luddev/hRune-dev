@@ -8,9 +8,14 @@
 #include "../include/cEngine.h"
 #include "../include/cRenderer.h"
 
-bool cEngine::add(cGameObject *_object, long int _objID)	{
-    m_gameObjectList.push_back(_object);
+bool cEngine::addTile(cGameObject *_object)	{
+    m_gameObjectTile.push_back(_object);
 	return true;
+}
+
+bool cEngine::addEnemy(cGameObject *_object)    {
+    m_gameObjectEnemy.push_back(_object);
+    return true;
 }
 
 void cEngine::init(GameState _gState)    {
@@ -41,6 +46,7 @@ void cEngine::init(GameState _gState)    {
 }
 
 void cEngine::draw() {
+    //Add Draw Calls here Before SDL_RenderPresent draw calls should be in order.
     SDL_RenderPresent(gameRenderer.gameRenderer);
 }
 
